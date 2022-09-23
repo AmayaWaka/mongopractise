@@ -30,22 +30,29 @@ const banana = new Fruit({
   rating: 8
 });
 //inserting many documents
-Fruit.insertMany([fruit, banana], function(err){
-  if(err){
-    console.log(err);
-  }else{
-    console.log("Successfully Saved all  the fruits")
-  }
-})
+// Fruit.insertMany([fruit, banana], function(err){
+//   if(err){
+//     console.log(err);
+//   }else{
+//     console.log("Successfully Saved all  the fruits")
+//   }
+// })
 //Updating documents
 
-Fruit.updateOne({_id: "632cfe09bb4634fd0e90dbb7"}, { name: "Radbrad"}, function(err){
+// Fruit.updateOne({_id: "632cfe09bb4634fd0e90dbb7"}, { name: "Radbrad"}, function(err){
+//   if(err){
+//     console.log(err);
+//   }else{
+//     console.log("Document updated successfully");
+//   }
+// });
+Fruit.deleteOne({_id: "632cfe09bb4634fd0e90dbb7"}, function(err){
   if(err){
-    console.log(err);
+    console.log(err)
   }else{
-    console.log("Document updated successfully");
+    console.log("Deleted successfully");
   }
-})
+});
 //Reading from our collection
 Fruit.find(function(err, fruits){
   if(err){
