@@ -37,6 +37,15 @@ Fruit.insertMany([fruit, banana], function(err){
     console.log("Successfully Saved all  the fruits")
   }
 })
+//Updating documents
+
+Fruit.updateOne({_id: "632cfe09bb4634fd0e90dbb7"}, { name: "Radbrad"}, function(err){
+  if(err){
+    console.log(err);
+  }else{
+    console.log("Document updated successfully");
+  }
+})
 //Reading from our collection
 Fruit.find(function(err, fruits){
   if(err){
