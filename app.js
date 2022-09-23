@@ -3,8 +3,16 @@ const mongoose = require("mongoose");
 mongoose.connect("mongodb://127.0.0.1:27017/good");
 //mongoose schema
 const fruitSchema = new mongoose.Schema({
-  name: String,
-  rating: Number
+  //Validation using mongoose
+  name:{
+    type: String,
+    required: [true, "Please check your data"]
+  },
+  rating:{
+    type: Number,
+    min: 1,
+    max: 10
+  }
 });
 //mongoose model
 const Fruit = mongoose.model('fruit', fruitSchema);
@@ -34,6 +42,7 @@ Fruit.find(function(err, fruits){
   if(err){
     console.log(err);
   }else{
+    //closed the connection
     mongoose.connection.close();
     fruits.forEach(function(fruit){
       console.log(fruit.name)
