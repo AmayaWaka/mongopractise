@@ -46,7 +46,7 @@ const banana = new Fruit({
 //     console.log("Document updated successfully");
 //   }
 // });
-Fruit.deleteOne({_id: "632cfe09bb4634fd0e90dbb7"}, function(err){
+Fruit.deleteMany({name: "Banan"}, function(err){
   if(err){
     console.log(err)
   }else{
